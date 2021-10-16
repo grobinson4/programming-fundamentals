@@ -9,7 +9,9 @@ const getSneakers = () => {
     console.log("The original array elements are :")
 
     for(i = 0; i < 5; i++) {
-        console.log("Sneaker" + "["+ sneakers.findIndex(sneaker => sneaker > i) + "] = " + sneakers[i])
+        //console.log("Sneaker" + "["+ sneakers.findIndex(sneaker => sneaker > i) + "] = " + sneakers[i])
+        sneakerCollection = sneakers[i]
+        console.log("Sneaker" + "["+ sneakers.findIndex(sneaker => sneaker > i) + "] = " + sneakerCollection)
 
     }
 };
