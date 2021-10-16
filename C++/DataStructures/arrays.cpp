@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// Execute file with .\arrays.exe
 using namespace std;
 
 // arrays - are a collection of similar data stored in a memory location that can be accessed by indices of the array. 
