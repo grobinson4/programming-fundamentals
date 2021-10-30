@@ -9,7 +9,7 @@ int main()
     string append;
     fstream ob;
 
-    cout << "Enter name of file:"; //Prompt userfor the file name
+    cout << "Enter name of file name (test.txt) "; //Prompt userfor the file name
     cin >> fileName;
     cout << "Do you want to append file contents? (Enter yes or no) "; //prompt user to append contents
     cin >> append;
