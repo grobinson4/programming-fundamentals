@@ -13,8 +13,9 @@ int main()
     cin >> fileName;
     cout << "Do you want to append file contents? (Enter yes or no) "; //prompt user to append contents
     cin >> append;
-    ob.open("test.txt", ios:: in);	//if the user chooses yes to append file open the file in reading mode
+    
     if(append=="yes"){
+    ob.open("test.txt", ios:: in);	//if the user chooses yes to append file open the file in reading mode
 	while (!ob.eof())
 	{
 		string str;
