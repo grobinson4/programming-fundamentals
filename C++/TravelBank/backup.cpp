@@ -1,43 +1,24 @@
-// Execute file with node array.js
-
-// In javascript we do not have to declare primitive data types 
-// we can store any data type in our variable.
-const sneakers = [1,2,3,4,5,6,7,8,9];
-
-const getSneakers = () => {
-    console.log("Item in index 2 of the sneakers collection is " + sneakers[2])
-    console.log("The original array elements are :")
-
-    for(i = 0; i < 5; i++) {
-        //console.log("Sneaker" + "["+ sneakers.findIndex(sneaker => sneaker > i) + "] = " + sneakers[i])
-        sneakerCollection = sneakers[i]
-        console.log("Sneaker" + "["+ sneakers.findIndex(sneaker => sneaker > i) + "] = " + sneakerCollection)
-
-    }
-};
-
-getSneakers();
-
-
 #include <iostream>
 #include <stdlib.h>
 #include <iomanip>
 #include <string>
-
-
-
+#include <sstream>
 
 using namespace std;
+
+
+
 
 int main()
 {
     const char separator    = ' ';
     const int nameWidth     = 6;
     const int numWidth      = 8;
-
+    double inputValidate(double); // 6.30 = 6:30am, 21 = 9pm
+    double inputValidate(double, int); // $6.00
     char day[3],month[3],year[5];
     char start_date, end_date;
-    char start_time, end_time;
+    string start_time, end_time;
     int total_days;
     double airfare;
     double car_rental;
@@ -46,15 +27,19 @@ int main()
     double taxi;
     double event;
     double hotel;
+    void getMeals();
+    void getBreakfast();
+    void getLunch();
+    void getDinner();
     double budget;
     double total_expenses;
     double balance;
     double total_due;
 
-    int start_hour, start_minute;
-    int end_hour, end_minute;
-    int dest_miles;
+    int start_hour, end_hour;
+    char start_minute[3], end_minute[3];
     char c;
+    char buffer [256];
     
     // 1.Start Date
     cout<<"Please input the trip start date in 'dd/mm/yyyy' format: ";
@@ -64,9 +49,9 @@ int main()
 	cin.ignore(100,'/');
 	cin.get(year,5);
     // 2. Start Hour
-    cout << "Please input your trip start time (HH:MM): ";
+    cout << "Please input your trip start time in 'HH:MMam' no spaces: ";
     cin >> start_hour >> c >> start_minute;
-    // start_time = start_hour ">> c >>" start_minute;
+    start_time = string(itoa(start_hour,buffer,10)) + ":" + start_minute;
     // 3. End Date
     cout<<"Please input the date of your trip end in 'dd/mm/yyyy' format: ";
 	cin.get(day,4,'/');
@@ -75,16 +60,16 @@ int main()
 	cin.ignore(100,'/');
 	cin.get(year,5);
     // 4. End Hour
-    cout << "Please enter your trip end time (HH:MM): ";
+    cout << "Please enter your trip end time in 'HH:MMpm' no spaces: ";
     cin >> end_hour >> c >> end_minute;
-    // end_time = end_hour >> c >> end_minute;
+    end_time = string(itoa(end_hour,buffer,10)) + ":" + end_minute;
     //convert them to int
 	int d,m,y;
 	d=atoi(day);
 	m=atoi(month);
 	y=atoi(year);
     // **Days on Trip**
-    cout << "Please input the total days spent on business trip:";
+    cout << "Please input the total days spent on business trip: ";
     cin >> total_days;
     // 5. Airfare 
     cout << "Please input the total cost of round-trip airfare: ";
@@ -114,9 +99,9 @@ int main()
     std::cout << std::left << std::setw(20) << "Travel Expense Report" << '\n';
     std::cout << std::string(13*3 + 2*3, '-') << "\n";
     std::cout << std::left << std::setw(20) << "Start Date:" << std::right << std::setw(16) << d<<"/"<<m<<"/"<<y << '\n';
-    std::cout << std::left << std::setw(20) << "Start Time:" << std::right << std::setw(16) << start_time << '\n';
+    std::cout << std::left << std::setw(20) << "Start Time:" << std::right << std::setw(21) << start_time << '\n';
     std::cout << std::left << std::setw(20) << "End Date:" << std::right << std::setw(16) << d<<"/"<<m<<"/"<<y << '\n';
-    std::cout << std::left << std::setw(20) << "End Time:" << std::right << std::setw(16) << end_time << '\n';
+    std::cout << std::left << std::setw(20) << "End Time:" << std::right << std::setw(21) << end_time << '\n';
     std::cout << std::left << std::setw(20) << "Days on Trip:" << std::right << std::setw(16) << total_days << '\n';
     std::cout << '\n';
     std::cout << std::left << std::setw(20) << "Round-trip Airfare:" << std::right << std::setw(16) << std::fixed << std::setprecision(2) << "$" << airfare << '\n';
@@ -137,3 +122,4 @@ int main()
 
     return 0;
 }
+
