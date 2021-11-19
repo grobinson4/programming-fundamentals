@@ -1,5 +1,8 @@
 #include <iostream>
 #include <limits>
+#include <stdlib.h>
+#include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -61,7 +64,7 @@ int main()
                 total_amount_saved, 
                 arrival_time);       
     
-    displayTotals(total_days_on_trip,     ////// <-------
+    displayTotals(total_days_on_trip,     
                   departure_time, 
                   arrival_time, 
                   total_expenses, 
@@ -415,11 +418,17 @@ void displayTotals(int total_days_on_trip,
                    double total_reimbursement,
                    double total_amount_saved)
 {
-    cout << "\nTotal days on trip: " << total_days_on_trip << endl; 
-    cout << "Time of departure: " << departure_time << endl;
-    cout << "Time of arrival: " << arrival_time << endl;
-    cout << "Total expenses: $" << total_expenses << endl;
-    cout << "Total allowable expenses: $" << total_allowable_expenses << endl;
-    cout << "Total reimbursement: $" << total_reimbursement << endl;
-    cout << "Total amount saved: $" << total_amount_saved << endl << endl;
+    std::cout << std::string(13*3 + 2*3, '-') << "\n";
+    std::cout << std::left << std::setw(20) << "Travel Expense Report" << '\n';
+    std::cout << std::string(13*3 + 2*3, '-') << "\n";
+    std::cout << std::left << std::setw(40) << "Total days on trip:" << std::left << total_days_on_trip << '\n';
+    std::cout << std::left << std::setw(40) << "Time of departure:" << std::left << std::setw(20) << departure_time << '\n';
+    std::cout << std::left << std::setw(40) << "Time of arrival:" << std::left << std::setw(20) << arrival_time << '\n';
+    std::cout << '\n';
+    std::cout << std::left << std::setw(40) << "Total allowable expenses: $" << std::left << std::setw(20) << total_allowable_expenses << '\n';
+    std::cout << std::left << std::setw(40) << "Total Expenses: $" << std::left << std::setw(20) << total_expenses << '\n';
+    std::cout << std::left << std::setw(40) << "Total reimbursement: $" << std::left << std::setw(20) << total_reimbursement << '\n';
+    std::cout << std::string(13*3 + 2*3, '-') << "\n";
+    std::cout << std::left << std::setw(40) << "Total amount saved: $" << std::left << std::setw(20) << total_amount_saved << '\n';
+    cout << endl;
 }
